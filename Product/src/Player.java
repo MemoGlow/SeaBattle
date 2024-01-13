@@ -92,16 +92,15 @@ public class Player implements Comparable<Player>{
         return String.format("%s\n%d %d\n", name, numberOfShotCell, board.getRemainShip());
     }
     public int compareTo(Player p){
-        if(numberOfShotCell > p.numberOfShotCell) return -1;
+        if(numberOfShotCell > p.numberOfShotCell) return 1;
         else if(numberOfShotCell == p.numberOfShotCell){
-            if(board.getRemainShip() < p.getBoard().getRemainShip()) return -1;
+            if(board.getRemainShip() < p.getBoard().getRemainShip()) return 1;
             else if(board.getRemainShip() == p.getBoard().getRemainShip()){
-                if(name.compareTo(p.getName()) < 0) return -1;
+                if(name.compareTo(p.getName()) < 0) return 1;
                 else if(name.compareTo(p.getName()) == 0) return 0;
             }
         }
-        return 1;
-
+        return -1;
     }
 
 }
